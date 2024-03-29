@@ -4,19 +4,25 @@ using System.Diagnostics.Eventing.Reader;
 
 namespace PFE_CHU.Models
 {
-    public class user
+    public class User
     {
-        int? id { get; set; }
-        string nom { get; set; }
-        string prenom { get; set; }
-        string login { get; set; }
+        public int? Id { get; set; }
+        [Required]
+        public string Nom { get; set; }
+        [Required]
+        public string Prenom { get; set; }
+        [Required]
+        public string Login { get; set; }
+        [Required]
         [DataType(DataType.Password)]
-        string password { get; set; }
+        public string Password { get; set; }
         [NotMapped]
         [DataType(DataType.Password)]
-        string confirmepswd { get; set; }
-        Role role { get; set; }
-        int RoleId { get; set; }
+        [Compare("Password")]
+        [Required]
+        public string Confirmepswd { get; set; }
+        public Role Role { get; set; } // pour faire les jointures 
+        public int RoleId { get; set; }//Clé etrangere f User dyal la class Role 
  
 
 

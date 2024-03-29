@@ -2,9 +2,9 @@
 {
     public class Role
     {
-        int? id { get; set; }
-        string libelle { get; set; }
+        public int? Id { get; set; }
+        public string Libelle { get; set; }
 
-        ICollection<user >   users{ get; set; }
+        public ICollection<User> Users{ get; set; }//One to many
     }
 }

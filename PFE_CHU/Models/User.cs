@@ -23,7 +23,14 @@ namespace PFE_CHU.Models
         public string Confirmepswd { get; set; }
         public Role Role { get; set; } // pour faire les jointures 
         public int RoleId { get; set; }//Clé etrangere f User dyal la class Role 
- 
+
+
+        public Service Service { get; set; }
+       public int ServiceId { get; set; }
+     
+            
+     
+
 
 
     }

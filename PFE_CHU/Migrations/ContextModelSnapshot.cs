@@ -39,6 +39,23 @@ namespace PFE_CHU.Migrations
                     b.ToTable("Roles");
                 });
 
+            modelBuilder.Entity("PFE_CHU.Models.Service", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
+
+                    b.Property<string>("Libelle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Services");
+                });
+
             modelBuilder.Entity("PFE_CHU.Models.User", b =>
                 {
                     b.Property<int?>("Id")
@@ -66,9 +83,14 @@ namespace PFE_CHU.Migrations
                     b.Property<int>("RoleId")
                         .HasColumnType("int");
 
+                    b.Property<int>("ServiceId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("RoleId");
+
+                    b.HasIndex("ServiceId");
 
                     b.ToTable("Users");
                 });
@@ -81,10 +103,23 @@ namespace PFE_CHU.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("PFE_CHU.Models.Service", "Service")
+                        .WithMany("Users")
+                        .HasForeignKey("ServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Role");
+
+                    b.Navigation("Service");
                 });
 
             modelBuilder.Entity("PFE_CHU.Models.Role", b =>
+                {
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("PFE_CHU.Models.Service", b =>
                 {
                     b.Navigation("Users");
                 });

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Maryem\\Desktop\\CHU_PFE\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj": {}
+    "C:\\Users\\Maryem\\Desktop\\CHU-PFE\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Maryem\\Desktop\\CHU_PFE\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj": {
+    "C:\\Users\\Maryem\\Desktop\\CHU-PFE\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Maryem\\Desktop\\CHU_PFE\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj",
+        "projectUniqueName": "C:\\Users\\Maryem\\Desktop\\CHU-PFE\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj",
         "projectName": "PFE_CHU",
-        "projectPath": "C:\\Users\\Maryem\\Desktop\\CHU_PFE\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj",
+        "projectPath": "C:\\Users\\Maryem\\Desktop\\CHU-PFE\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj",
         "packagesPath": "C:\\Users\\Maryem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Maryem\\Desktop\\CHU_PFE\\PFE_CHU\\PFE_CHU\\obj\\",
+        "outputPath": "C:\\Users\\Maryem\\Desktop\\CHU-PFE\\PFE_CHU\\PFE_CHU\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Maryem\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -70,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

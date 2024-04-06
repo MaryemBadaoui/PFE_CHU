@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<Context>(
     opt =>
     {
-        opt.UseSqlServer ("Data Source=.\\EXPRESS;Initial Catalog=PFE_CHU; Encrypt=false; Integrated Security=true;");
+        opt.UseSqlServer ("Data Source=.;Initial Catalog=PFE_CHU; Encrypt=false; Integrated Security=true;");
       
     }
 );
@@ -28,6 +28,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();

@@ -22,6 +22,50 @@ namespace PFE_CHU.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("PFE_CHU.Models.Devision", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
+
+                    b.Property<string>("Libelle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("Devision");
+                });
+
+            modelBuilder.Entity("PFE_CHU.Models.Hopitaux", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
+
+                    b.Property<string>("Libelle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("Hopitaux");
+                });
+
             modelBuilder.Entity("PFE_CHU.Models.Role", b =>
                 {
                     b.Property<int?>("Id")
@@ -95,6 +139,43 @@ namespace PFE_CHU.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("RoleService", b =>
+                {
+                    b.Property<int>("RolesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ServicesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("RolesId", "ServicesId");
+
+                    b.HasIndex("ServicesId");
+
+                    b.ToTable("RoleService");
+                });
+
+            modelBuilder.Entity("PFE_CHU.Models.Devision", b =>
+                {
+                    b.HasOne("PFE_CHU.Models.Role", "Role")
+                        .WithMany("Devision")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("PFE_CHU.Models.Hopitaux", b =>
+                {
+                    b.HasOne("PFE_CHU.Models.Role", "Role")
+                        .WithMany("Hopitauxes")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+                });
+
             modelBuilder.Entity("PFE_CHU.Models.User", b =>
                 {
                     b.HasOne("PFE_CHU.Models.Role", "Role")
@@ -104,7 +185,7 @@ namespace PFE_CHU.Migrations
                         .IsRequired();
 
                     b.HasOne("PFE_CHU.Models.Service", "Service")
-                        .WithMany("Users")
+                        .WithMany()
                         .HasForeignKey("ServiceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -114,13 +195,27 @@ namespace PFE_CHU.Migrations
                     b.Navigation("Service");
                 });
 
-            modelBuilder.Entity("PFE_CHU.Models.Role", b =>
+            modelBuilder.Entity("RoleService", b =>
                 {
-                    b.Navigation("Users");
+                    b.HasOne("PFE_CHU.Models.Role", null)
+                        .WithMany()
+                        .HasForeignKey("RolesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PFE_CHU.Models.Service", null)
+                        .WithMany()
+                        .HasForeignKey("ServicesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("PFE_CHU.Models.Service", b =>
+            modelBuilder.Entity("PFE_CHU.Models.Role", b =>
                 {
+                    b.Navigation("Devision");
+
+                    b.Navigation("Hopitauxes");
+
                     b.Navigation("Users");
                 });
 #pragma warning restore 612, 618

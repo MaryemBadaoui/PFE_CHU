@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PFE_CHU")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+886d35b7ef088dd2790a5f2576714a97f5163f14")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9821fb637711cd1482f75d0a84f9b3a3d389728")]
 [assembly: System.Reflection.AssemblyProductAttribute("PFE_CHU")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PFE_CHU")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

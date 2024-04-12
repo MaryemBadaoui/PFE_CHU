@@ -1,20 +1,19 @@
-﻿@model PFE_CHU.Models.User
+﻿@model PFE_CHU.Models.Login
 
 @{
-			Layout = "Login";
+    Layout = "Login";
 }
 
-<form class="login">
-	<div class="login__field">
-		<i class="login__icon fas fa-user"></i>
-		<input asp-for="Login" class="login__input" placeholder="Email">
-	</div>
-	<div class="login__field">
-		<i class="login__icon fas fa-lock"></i>
-		<input asp-for="Password" class="login__input" placeholder="Password">
-	</div>
-	<button class="button login__submit">
-		<span class="button__text">Log In Now</span>
-		<i class="button__icon fas fa-chevron-right"></i>
-	</button>
+<form class="login" asp-action="Index" asp-controller="Login">
+    <div class="login__field">
+        <i class="login__icon fas fa-user"></i>
+        <input asp-for="login" class="login__input" placeholder="Email">
+    </div>
+    <div class="login__field">
+        <i class="login__icon fas fa-lock"></i>
+        <input asp-for="Password" class="login__input" placeholder="Password">
+    </div>
+    <div class="button login__submit">
+        <input type="submit" value="Log In Now" class="button__text">
+    </div>
 </form>

@@ -4,7 +4,7 @@
 	{
 		public int? Id { get; set; }
 		public String Libelle { get; set; }
-		public Role Role { get; set; }
-		public int RoleId { get; set; }
-	}
+        public ICollection<User> Users { get; set; }//One to many
+        public ICollection<Service> Services { get; set; }
+    }
 }

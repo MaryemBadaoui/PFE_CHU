@@ -9,6 +9,32 @@ namespace PFE_CHU.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Devision",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Libelle = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Devision", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Hopitaux",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Libelle = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Hopitaux", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Roles",
                 columns: table => new
                 {
@@ -27,73 +53,16 @@ namespace PFE_CHU.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Libelle = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Libelle = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DevisionId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Services", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Devision",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Libelle = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RoleId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Devision", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Devision_Roles_RoleId",
-                        column: x => x.RoleId,
-                        principalTable: "Roles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Hopitaux",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Libelle = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RoleId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Hopitaux", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Hopitaux_Roles_RoleId",
-                        column: x => x.RoleId,
-                        principalTable: "Roles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "RoleService",
-                columns: table => new
-                {
-                    RolesId = table.Column<int>(type: "int", nullable: false),
-                    ServicesId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RoleService", x => new { x.RolesId, x.ServicesId });
-                    table.ForeignKey(
-                        name: "FK_RoleService_Roles_RolesId",
-                        column: x => x.RolesId,
-                        principalTable: "Roles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_RoleService_Services_ServicesId",
-                        column: x => x.ServicesId,
-                        principalTable: "Services",
+                        name: "FK_Services_Devision_DevisionId",
+                        column: x => x.DevisionId,
+                        principalTable: "Devision",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -109,11 +78,25 @@ namespace PFE_CHU.Migrations
                     Login = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RoleId = table.Column<int>(type: "int", nullable: false),
-                    ServiceId = table.Column<int>(type: "int", nullable: false)
+                    ServiceId = table.Column<int>(type: "int", nullable: false),
+                    DevisionId = table.Column<int>(type: "int", nullable: false),
+                    HopitauxId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Users_Devision_DevisionId",
+                        column: x => x.DevisionId,
+                        principalTable: "Devision",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Users_Hopitaux_HopitauxId",
+                        column: x => x.HopitauxId,
+                        principalTable: "Hopitaux",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Users_Roles_RoleId",
                         column: x => x.RoleId,
@@ -125,23 +108,23 @@ namespace PFE_CHU.Migrations
                         column: x => x.ServiceId,
                         principalTable: "Services",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Devision_RoleId",
-                table: "Devision",
-                column: "RoleId");
+                name: "IX_Services_DevisionId",
+                table: "Services",
+                column: "DevisionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Hopitaux_RoleId",
-                table: "Hopitaux",
-                column: "RoleId");
+                name: "IX_Users_DevisionId",
+                table: "Users",
+                column: "DevisionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RoleService_ServicesId",
-                table: "RoleService",
-                column: "ServicesId");
+                name: "IX_Users_HopitauxId",
+                table: "Users",
+                column: "HopitauxId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_RoleId",
@@ -157,22 +140,19 @@ namespace PFE_CHU.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Devision");
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Hopitaux");
-
-            migrationBuilder.DropTable(
-                name: "RoleService");
-
-            migrationBuilder.DropTable(
-                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Roles");
 
             migrationBuilder.DropTable(
                 name: "Services");
+
+            migrationBuilder.DropTable(
+                name: "Devision");
         }
     }
 }

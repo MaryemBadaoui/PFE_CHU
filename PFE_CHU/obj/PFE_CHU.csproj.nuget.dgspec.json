@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HREz\\Desktop\\PFE Maryem\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj": {}
+    "C:\\Users\\Maryem\\Desktop\\CHU-PFE\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HREz\\Desktop\\PFE Maryem\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj": {
+    "C:\\Users\\Maryem\\Desktop\\CHU-PFE\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HREz\\Desktop\\PFE Maryem\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj",
+        "projectUniqueName": "C:\\Users\\Maryem\\Desktop\\CHU-PFE\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj",
         "projectName": "PFE_CHU",
-        "projectPath": "C:\\Users\\HREz\\Desktop\\PFE Maryem\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj",
-        "packagesPath": "C:\\Users\\HREz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HREz\\Desktop\\PFE Maryem\\PFE_CHU\\PFE_CHU\\obj\\",
+        "projectPath": "C:\\Users\\Maryem\\Desktop\\CHU-PFE\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj",
+        "packagesPath": "C:\\Users\\Maryem\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Maryem\\Desktop\\CHU-PFE\\PFE_CHU\\PFE_CHU\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HREz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Maryem\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -67,24 +67,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.27, 6.0.27]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.27, 6.0.27]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.27, 6.0.27]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.27, 6.0.27]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -93,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

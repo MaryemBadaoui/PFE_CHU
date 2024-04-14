@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Maryem\\Desktop\\CHU-PFE\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj": {}
+    "C:\\Users\\HREz\\Desktop\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Maryem\\Desktop\\CHU-PFE\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj": {
+    "C:\\Users\\HREz\\Desktop\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Maryem\\Desktop\\CHU-PFE\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj",
+        "projectUniqueName": "C:\\Users\\HREz\\Desktop\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj",
         "projectName": "PFE_CHU",
-        "projectPath": "C:\\Users\\Maryem\\Desktop\\CHU-PFE\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj",
-        "packagesPath": "C:\\Users\\Maryem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Maryem\\Desktop\\CHU-PFE\\PFE_CHU\\PFE_CHU\\obj\\",
+        "projectPath": "C:\\Users\\HREz\\Desktop\\PFE_CHU\\PFE_CHU\\PFE_CHU.csproj",
+        "packagesPath": "C:\\Users\\HREz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HREz\\Desktop\\PFE_CHU\\PFE_CHU\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Maryem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HREz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -47,13 +47,21 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.28, )"
+              "version": "[6.0.29, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[6.0.29, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.28, )"
+              "version": "[6.0.29, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.16, )"
             }
           },
           "imports": [
@@ -75,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

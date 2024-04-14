@@ -17,7 +17,7 @@ namespace PFE_CHU.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.28")
+                .HasAnnotation("ProductVersion", "6.0.29")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -36,7 +36,7 @@ namespace PFE_CHU.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Devision");
+                    b.ToTable("Devisions");
                 });
 
             modelBuilder.Entity("PFE_CHU.Models.Hopitaux", b =>
@@ -81,7 +81,7 @@ namespace PFE_CHU.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
 
-                    b.Property<int>("DevisionId")
+                    b.Property<int?>("DevisionId")
                         .HasColumnType("int");
 
                     b.Property<string>("Libelle")
@@ -103,10 +103,10 @@ namespace PFE_CHU.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
 
-                    b.Property<int>("DevisionId")
+                    b.Property<int?>("DevisionId")
                         .HasColumnType("int");
 
-                    b.Property<int>("HopitauxId")
+                    b.Property<int?>("HopitauxId")
                         .HasColumnType("int");
 
                     b.Property<string>("Login")
@@ -125,10 +125,10 @@ namespace PFE_CHU.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RoleId")
+                    b.Property<int?>("RoleId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ServiceId")
+                    b.Property<int?>("ServiceId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -148,9 +148,7 @@ namespace PFE_CHU.Migrations
                 {
                     b.HasOne("PFE_CHU.Models.Devision", "Devision")
                         .WithMany("Services")
-                        .HasForeignKey("DevisionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DevisionId");
 
                     b.Navigation("Devision");
                 });
@@ -159,27 +157,19 @@ namespace PFE_CHU.Migrations
                 {
                     b.HasOne("PFE_CHU.Models.Devision", "Devision")
                         .WithMany("Users")
-                        .HasForeignKey("DevisionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DevisionId");
 
                     b.HasOne("PFE_CHU.Models.Hopitaux", "Hopitaux")
                         .WithMany("Users")
-                        .HasForeignKey("HopitauxId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("HopitauxId");
 
                     b.HasOne("PFE_CHU.Models.Role", "Role")
                         .WithMany("Users")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RoleId");
 
                     b.HasOne("PFE_CHU.Models.Service", "Service")
                         .WithMany("Users")
-                        .HasForeignKey("ServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ServiceId");
 
                     b.Navigation("Devision");
 
